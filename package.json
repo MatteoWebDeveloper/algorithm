@@ -1,0 +1,23 @@
+{
+  "name": "algorithm",
+  "version": "1.0.0",
+  "description": "Playground to solve algorithm",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatteoWebDesigner/algorithm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatteoWebDesigner/algorithm/issues"
+  },
+  "homepage": "https://github.com/MatteoWebDesigner/algorithm#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
+    "jest": "^24.9.0"
+  }
+}
