@@ -4,17 +4,17 @@ import {
 
 describe("patternMatch", () => {
     test("test text match", () => {
-        expect(patternMatch("a", "a")).toBe(true)
-        expect(patternMatch("aa", "a")).toBe(false)
-        expect(patternMatch("ab", "ab")).toBe(false)
+        expect(patternMatch("a", "a")).toBe(true);
+        expect(patternMatch("aa", "a")).toBe(false);
+        expect(patternMatch("ab", "ab")).toBe(true);
     })
 
     test("test '.' match", () => {
-        expect(patternMatch("a", ".")).toBe(true)
-        expect(patternMatch("aa", ".")).toBe(false)
-        expect(patternMatch("ab", "a.")).toBe(true)
-        expect(patternMatch("abc", "a..")).toBe(true)
-        expect(patternMatch("abcd", "a..")).toBe(false)
+        expect(patternMatch("a", ".")).toBe(true);
+        expect(patternMatch("aa", ".")).toBe(false);
+        expect(patternMatch("ab", "a.")).toBe(true);
+        expect(patternMatch("abc", "a..")).toBe(true);
+        expect(patternMatch("abcd", "a..")).toBe(false);
     })
 
     test("test '?' match", () => {
