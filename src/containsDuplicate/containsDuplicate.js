@@ -3,7 +3,7 @@ function containsDuplicate(nums) {
     let numsLength = nums.length;
 
     for (let i = 0; i < numsLength; i++) {
-        let currentValue = nums[i]
+        let currentValue = nums[i];
 
         if (map[currentValue]) {
             return true;
@@ -13,8 +13,6 @@ function containsDuplicate(nums) {
     }
 
     return false;
-};
-
-export {
-    containsDuplicate
 }
+
+export { containsDuplicate };

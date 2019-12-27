@@ -39,6 +39,4 @@ function intersection(arr1, arr2) {
     });
 }
 
-export {
-    intersection
-};
+export { intersection };

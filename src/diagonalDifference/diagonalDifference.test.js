@@ -1,9 +1,7 @@
-import {
-    diagonalDifference
-} from "./diagonalDifference.js";
+import { diagonalDifference } from './diagonalDifference.js';
 
-describe("diagonalDifference", () => {
-    test("should positive diagonal difference on 3x3 square", () => {
+describe('diagonalDifference', () => {
+    test('should positive diagonal difference on 3x3 square', () => {
         let output = diagonalDifference([
             [1, 2, 3],
             [4, 5, 6],
@@ -11,9 +9,9 @@ describe("diagonalDifference", () => {
         ]);
 
         expect(output).toBe(0);
-    })
+    });
 
-    test("should negative diagonal difference on 3x3 square", () => {
+    test('should negative diagonal difference on 3x3 square', () => {
         let output = diagonalDifference([
             [1, 2, -3],
             [4, 5, -6],
@@ -21,9 +19,9 @@ describe("diagonalDifference", () => {
         ]);
 
         expect(output).toBe(12);
-    })
+    });
 
-    test("should negative diagonal difference on 4x4 square", () => {
+    test('should negative diagonal difference on 4x4 square', () => {
         let output = diagonalDifference([
             [1, 2, 3, 4],
             [5, 6, 7, 8],
@@ -32,5 +30,5 @@ describe("diagonalDifference", () => {
         ]);
 
         expect(output).toBe(0);
-    })
-})
+    });
+});

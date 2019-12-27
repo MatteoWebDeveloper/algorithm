@@ -4,7 +4,8 @@
   "description": "Playground to solve algorithm",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "prettier --write \"src/**/*.js\""
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,8 @@
   },
   "homepage": "https://github.com/MatteoWebDesigner/algorithm#readme",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
-    "jest": "^24.9.0"
+    "@babel/plugin-transform-modules-commonjs": "7.7.5",
+    "jest": "24.9.0",
+    "prettier": "1.19.1"
   }
 }

@@ -10,12 +10,10 @@ function factorial(number) {
 
 function factorialTrailingZeros(n) {
     let factorialInput = factorial(n);
-    let factorialDigitList = factorialInput.toString().split("");
-    let factorialZeroList = factorialDigitList.filter(value => value === "0");
+    let factorialDigitList = factorialInput.toString().split('');
+    let factorialZeroList = factorialDigitList.filter(value => value === '0');
 
     return factorialZeroList.length;
 }
 
-export {
-    factorialTrailingZeros
-};
+export { factorialTrailingZeros };

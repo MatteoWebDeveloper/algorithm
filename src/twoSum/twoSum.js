@@ -7,7 +7,7 @@ function twoSum(arrayNumbers, target) {
             value: number,
             index
         };
-    })
+    });
 
     for (let i = 0; i < arrayNumbersLength; i++) {
         let currentNumber = arrayNumbers[i];
@@ -15,12 +15,12 @@ function twoSum(arrayNumbers, target) {
         let hashMapNumber = hashMapNumbers[complementNumber];
 
         if (hashMapNumber && hashMapNumber.index !== i) {
-            return [currentNumber, complementNumber]
+            return [currentNumber, complementNumber];
         }
     }
 
-    return null
-}
+    return null;
+};
 
 export {
     twoSum

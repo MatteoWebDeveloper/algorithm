@@ -4,21 +4,21 @@ class MatrixController {
         this.pointerPosition = {
             x: 0,
             y: 0
-        }
+        };
     }
 
     startFromTopLeft() {
         this.pointerPosition = {
             x: 0,
             y: 0
-        }
+        };
     }
 
     startFromTopRight() {
         this.pointerPosition = {
             x: this.matrix.length - 1,
             y: 0
-        }
+        };
     }
 
     traverseDiagonallyToBottomRight() {
@@ -32,10 +32,7 @@ class MatrixController {
     }
 
     getPointerValue() {
-        let {
-            x,
-            y
-        } = this.pointerPosition
+        let { x, y } = this.pointerPosition;
 
         return this.matrix[y][x];
     }
@@ -65,11 +62,10 @@ function diagonalDifference(Array2D) {
         rightDiagonalValues[i] = right.getPointerValue();
     }
 
-    let difference = leftDiagonalValues.reduce(sum, 0) - rightDiagonalValues.reduce(sum, 0);
+    let difference =
+        leftDiagonalValues.reduce(sum, 0) - rightDiagonalValues.reduce(sum, 0);
 
     return Math.abs(difference);
 }
 
-export {
-    diagonalDifference
-}
+export { diagonalDifference };
