@@ -1,4 +1,4 @@
-function calculateHighestPopulationYear(population) {
+function calculateHighestPopulationYearWithSegment(population) {
     let years = [];
 
     population.forEach(({
@@ -68,6 +68,7 @@ function calculateHighestPopulationYear(population) {
 
     // find highest count
     let segmentIndexWithHighestPopulation = 0;
+    let segmentIndexesWithHighestPopulationList = [];
 
     yearSegments.forEach(({
         count
@@ -76,12 +77,94 @@ function calculateHighestPopulationYear(population) {
 
         if (count > highestCount) {
             segmentIndexWithHighestPopulation = index;
+            segmentIndexesWithHighestPopulationList = [index];
+        }
+
+        if (count === highestCount) {
+            segmentIndexesWithHighestPopulationList.push(index);
         }
     });
 
-    let highestPopulationYearSegment = yearSegments[segmentIndexWithHighestPopulation]
+    return segmentIndexesWithHighestPopulationList.map((indexSegment) => {
+        let {
+            start,
+            end
+        } = yearSegments[indexSegment]
 
-    return [highestPopulationYearSegment.start, highestPopulationYearSegment.end];
-}
+        return [start, end]
+    });
+};
 
-export default calculateHighestPopulationYear;
+function calculateHighestPopulationYear(population) {
+    // create years data structure
+    let years = [];
+    let yearsDeltasMap = {};
+
+    population.forEach(({
+        birth,
+        death
+    }) => {
+        if (yearsDeltasMap[birth] === undefined) {
+            yearsDeltasMap[birth] = 1;
+            years.push(birth);
+        } else {
+            yearsDeltasMap[birth]++;
+        }
+
+        let yearPersonIsNotAlive = death + 1;
+
+        if (yearsDeltasMap[yearPersonIsNotAlive] === undefined) {
+            yearsDeltasMap[yearPersonIsNotAlive] = -1;
+            years.push(yearPersonIsNotAlive);
+        } else {
+            yearsDeltasMap[yearPersonIsNotAlive]--;
+        }
+    });
+
+    // let sortedYears = [...years].sort(); // immutability its safer but increase operations
+    let sortedYears = years.sort();
+
+    // console.log(sortedYears);
+    // console.log(yearsDeltasMap);
+
+    // calculate population count
+    let populationPeak = {
+        count: 0,
+        yearsIndex: []
+    };
+
+    let populationCount = 0;
+
+    sortedYears.forEach((year, index) => {
+        let deltas = yearsDeltasMap[year];
+
+        // change populationCount
+        populationCount += deltas;
+
+        // save when it reac a new peak
+        if (populationPeak.count < populationCount) {
+            populationPeak.count = populationCount;
+            populationPeak.yearsIndex = [index];
+        } else if (populationPeak.count === populationCount) {
+            populationPeak.yearsIndex.push(index);
+        }
+    });
+
+    return populationPeak.yearsIndex.map(index => {
+        let yearStart = sortedYears[index];
+        let nextIndexYear = sortedYears[index + 1];
+
+        if (nextIndexYear === undefined) {
+            return [yearStart];
+        }
+
+        let yearEnd = nextIndexYear - 1;
+
+        return [yearStart, yearEnd];
+    });
+};
+
+export {
+    calculateHighestPopulationYearWithSegment,
+    calculateHighestPopulationYear
+};
