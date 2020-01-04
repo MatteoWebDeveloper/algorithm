@@ -20,8 +20,6 @@ function twoSum(arrayNumbers, target) {
     }
 
     return null;
-};
+}
 
-export {
-    twoSum
-};
+export { twoSum };

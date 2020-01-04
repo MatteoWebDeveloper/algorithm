@@ -1,6 +1,4 @@
-import {
-    twoSum
-} from './twoSum.js';
+import { twoSum } from './twoSum.js';
 
 describe('twoSum', () => {
     test('should find two positive numbers have a sum to match target', () => {

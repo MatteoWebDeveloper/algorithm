@@ -1,6 +1,4 @@
-import {
-    numberToWord
-} from './numberToWord.js';
+import { numberToWord } from './numberToWord.js';
 
 describe('numberToWord', () => {
     test('should output numbers 0-9', () => {
@@ -54,6 +52,8 @@ describe('numberToWord', () => {
     test('should output 1000', () => {
         // four digit
         expect(numberToWord(1000)).toBe('one thousand');
-        expect(numberToWord(9999)).toBe('nine thousand nine hundred ninty nine');
+        expect(numberToWord(9999)).toBe(
+            'nine thousand nine hundred ninty nine'
+        );
     });
 });

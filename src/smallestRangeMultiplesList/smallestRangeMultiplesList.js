@@ -1,7 +1,7 @@
 /**
  * Complexity: O(a * b * c)
  * if 5 * 4 * 4 = 80 operations
- * 
+ *
  * @param {array} lists
  * [
  *     [number, number],
@@ -35,13 +35,13 @@ function rangeMultiplesListNumbersBruteForce(lists) {
                     range = [min, max];
                     smallesstDifference = difference;
                 }
-            };
-        };
-    };
+            }
+        }
+    }
 
     return range;
-};
-/* 
+}
+/*
  * Complexity O(n)
  * 5 + 4 + 4 - 2 = 11 operations worst case
  *
@@ -57,7 +57,9 @@ function rangeMultiplesListNumbersMinBase(lists) {
     }
 
     lists.forEach((list, index) => {
-        let indexesAvailable = [0, 1, 2].filter(indexAvailable => indexAvailable !== index);
+        let indexesAvailable = [0, 1, 2].filter(
+            indexAvailable => indexAvailable !== index
+        );
 
         let secondListIndex = indexesAvailable.pop();
         let secondList = lists[secondListIndex];
@@ -75,9 +77,19 @@ function rangeMultiplesListNumbersMinBase(lists) {
                 continue;
             }
 
-            let selectSecondNumber = findGreaterCloserNumber(selectMinNumber, secondList);
-            let selectThirdNumber = findGreaterCloserNumber(selectMinNumber, thirdList);
-            let sequence = [selectMinNumber, selectSecondNumber, selectThirdNumber];
+            let selectSecondNumber = findGreaterCloserNumber(
+                selectMinNumber,
+                secondList
+            );
+            let selectThirdNumber = findGreaterCloserNumber(
+                selectMinNumber,
+                thirdList
+            );
+            let sequence = [
+                selectMinNumber,
+                selectSecondNumber,
+                selectThirdNumber
+            ];
 
             let maxNumber = Math.max(...sequence);
 
@@ -88,13 +100,12 @@ function rangeMultiplesListNumbersMinBase(lists) {
                 smallesstDifference = difference;
             }
         }
-
     });
 
     return range;
-};
+}
 
 export {
     rangeMultiplesListNumbersBruteForce,
     rangeMultiplesListNumbersMinBase
-}
+};

@@ -1,6 +1,4 @@
-import {
-    patternMatch
-} from './patternMatch.js';
+import { patternMatch } from './patternMatch.js';
 
 describe('patternMatch', () => {
     test('should match when pattern character is the same character in string', () => {

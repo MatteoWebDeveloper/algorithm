@@ -50,7 +50,7 @@ function matchStar({
         patternIndexIncrement,
         patternMetadata
     };
-};
+}
 
 function matchQuestionMark({
     currentChar,
@@ -100,12 +100,9 @@ function matchQuestionMark({
         patternIndexIncrement,
         patternMetadata
     };
-};
+}
 
-function matchDot({
-    currentChar,
-    currentPattern
-}) {
+function matchDot({ currentChar, currentPattern }) {
     let isMatching = false;
     let isValid = false;
     let stringIndexIncrement = 1;
@@ -127,12 +124,9 @@ function matchDot({
         stringIndexIncrement,
         patternIndexIncrement
     };
-};
+}
 
-function matchChar({
-    currentChar,
-    currentPattern
-}) {
+function matchChar({ currentChar, currentPattern }) {
     let isMatching = false;
     let isValid = false;
     let stringIndexIncrement = 1;
@@ -149,7 +143,7 @@ function matchChar({
         stringIndexIncrement,
         patternIndexIncrement
     };
-};
+}
 
 function noMatch() {
     return {
@@ -158,12 +152,6 @@ function noMatch() {
         stringIndexIncrement: 1,
         patternIndexIncrement: 1
     };
-};
+}
 
-export {
-    matchStar,
-    matchQuestionMark,
-    matchDot,
-    matchChar,
-    noMatch
-};
+export { matchStar, matchQuestionMark, matchDot, matchChar, noMatch };

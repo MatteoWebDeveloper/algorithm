@@ -70,7 +70,7 @@ function numberToWord(number) {
     let digitIndex = 0;
 
     function navigate() {
-        let word = "";
+        let word = '';
         let currentDigit = listDigit[digitIndex];
         let vocabolary = orderVocabolary[orderVocabolaryLastIndex - digitIndex];
 
@@ -80,7 +80,7 @@ function numberToWord(number) {
         }
 
         // full number is zero
-        if (currentDigit === "0" && listDigitLastIndex === 0) {
+        if (currentDigit === '0' && listDigitLastIndex === 0) {
             word = vocabolary[currentDigit];
             listWords.push(word);
             digitIndex = listDigitLastIndex + 1;
@@ -100,7 +100,7 @@ function numberToWord(number) {
         }
 
         // number > 20
-        if (currentDigit === "0") {
+        if (currentDigit === '0') {
             digitIndex++;
 
             navigate();
@@ -119,9 +119,10 @@ function numberToWord(number) {
 
     navigate();
 
-    return listWords.reverse().join(' ').trim();
+    return listWords
+        .reverse()
+        .join(' ')
+        .trim();
 }
 
-export {
-    numberToWord
-};
+export { numberToWord };

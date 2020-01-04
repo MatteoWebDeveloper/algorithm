@@ -4,7 +4,7 @@ import {
     matchDot,
     matchChar,
     noMatch
-} from "./patternChecks.js";
+} from './patternChecks.js';
 
 function patternMatch(string, pattern) {
     let stringList = string.split('');
@@ -62,6 +62,4 @@ function patternMatch(string, pattern) {
     return validationList.every(value => value);
 }
 
-export {
-    patternMatch
-};
+export { patternMatch };

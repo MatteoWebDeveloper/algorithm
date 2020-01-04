@@ -1,12 +1,9 @@
 function calculateHighestPopulationYearWithSegment(population) {
     let years = [];
 
-    population.forEach(({
-        birth,
-        death
-    }) => {
-        years.push(birth, death)
-    })
+    population.forEach(({ birth, death }) => {
+        years.push(birth, death);
+    });
 
     years.sort();
 
@@ -40,15 +37,12 @@ function calculateHighestPopulationYearWithSegment(population) {
 
             yearSegments.push(segmentInBetween);
         }
-    };
+    }
 
     // console.log(yearSegments);
 
     // count population
-    population.forEach(({
-        birth,
-        death
-    }) => {
+    population.forEach(({ birth, death }) => {
         for (let i = 0; i < yearSegments.length; i++) {
             let segment = yearSegments[i];
 
@@ -62,7 +56,7 @@ function calculateHighestPopulationYearWithSegment(population) {
                 segment.count++;
             }
         }
-    })
+    });
 
     // console.log(yearSegments);
 
@@ -70,10 +64,9 @@ function calculateHighestPopulationYearWithSegment(population) {
     let segmentIndexWithHighestPopulation = 0;
     let segmentIndexesWithHighestPopulationList = [];
 
-    yearSegments.forEach(({
-        count
-    }, index) => {
-        let highestCount = yearSegments[segmentIndexWithHighestPopulation].count;
+    yearSegments.forEach(({ count }, index) => {
+        let highestCount =
+            yearSegments[segmentIndexWithHighestPopulation].count;
 
         if (count > highestCount) {
             segmentIndexWithHighestPopulation = index;
@@ -85,25 +78,19 @@ function calculateHighestPopulationYearWithSegment(population) {
         }
     });
 
-    return segmentIndexesWithHighestPopulationList.map((indexSegment) => {
-        let {
-            start,
-            end
-        } = yearSegments[indexSegment]
+    return segmentIndexesWithHighestPopulationList.map(indexSegment => {
+        let { start, end } = yearSegments[indexSegment];
 
-        return [start, end]
+        return [start, end];
     });
-};
+}
 
 function calculateHighestPopulationYear(population) {
     // create years data structure
     let years = [];
     let yearsDeltasMap = {};
 
-    population.forEach(({
-        birth,
-        death
-    }) => {
+    population.forEach(({ birth, death }) => {
         if (yearsDeltasMap[birth] === undefined) {
             yearsDeltasMap[birth] = 1;
             years.push(birth);
@@ -162,7 +149,7 @@ function calculateHighestPopulationYear(population) {
 
         return [yearStart, yearEnd];
     });
-};
+}
 
 export {
     calculateHighestPopulationYearWithSegment,
